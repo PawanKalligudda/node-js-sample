@@ -23,16 +23,6 @@ pipeline {
 	}
 	stage('Deploy to kubernetes') {
 	    steps {
-		sh 'sudo minikube delete'
-		sh 'sudo rm -rf ~/.minikube ~/.kube'
-		sh 'sudo rm -rf /usr/local/bin/minikube'
-		sh 'sudo curl -LO https://storage.googleapis.com/minikube/latest/minikube-linux-amd64'
-		sh 'sudo install minikube-linux-amd64 /usr/local/bin/minikube'
-		sh 'minikube version'
-		sh 'minikube start'    
-		sh 'kubectl config get-contexts'
-		sh 'kubectl get pods'
-		sh 'kubectl get nodes'
 		sh 'kubectl apply -f k8s/deployment.yaml'
 	    }
 	}
