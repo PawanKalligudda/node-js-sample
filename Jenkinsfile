@@ -23,7 +23,8 @@ pipeline {
 	}
 	stage('Deploy to kubernetes') {
 	    steps {
-		sh 'sudo kubectl apply -f k8s/deployment.yaml'
+		sh 'whoami'
+		sh 'kubectl apply -f k8s/deployment.yaml'
 	    }
 	}
     }
