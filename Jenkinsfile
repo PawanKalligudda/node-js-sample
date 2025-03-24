@@ -23,6 +23,7 @@ pipeline {
 	}
 	stage('Deploy to kubernetes') {
 	    steps {
+		sh 'kubectl config view --minify'
 		sh 'kubectl get pods'
 		sh 'kubectl get nodes'
 		sh 'kubectl apply -f k8s/deployment.yaml'
