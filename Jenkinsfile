@@ -23,7 +23,7 @@ pipeline {
 	}
 	stage('Deploy to kubernetes') {
 	    steps {
-		sh 'whoami'
+		sh 'kubectl config use-context minikube'
 		sh 'kubectl apply -f k8s/deployment.yaml'
 	    }
 	}
