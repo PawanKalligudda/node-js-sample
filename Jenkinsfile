@@ -23,7 +23,7 @@ pipeline {
 	}
 	stage('Deploy to kubernetes') {
 	    steps {
-		sh 'kubectl apply --validate=false -f k8s/deployment.yaml'
+		sh 'sudo kubectl apply -f k8s/deployment.yaml'
 	    }
 	}
     }
